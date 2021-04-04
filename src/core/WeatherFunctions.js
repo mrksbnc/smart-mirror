@@ -1,7 +1,7 @@
 'use strict';
 
 import axios from 'axios';
-import store from '../store';
+import store from '../renderer/store';
 import { weather } from '../config/config';
 import WeatherIconEnum from '../data/weatherIconEnum';
 /**
@@ -30,6 +30,7 @@ class WeatherFunctions {
    * @returns {Promise<JSON>} Promise object which represents the server response
    */
   async GetWeather() {
+    console.log(this);
     const url =
       this.baseUrl +
       `/data/2.5/weatherq=${this.city}&units=metric&appid=${this.apiKey}`;
