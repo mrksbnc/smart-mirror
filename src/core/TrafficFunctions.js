@@ -1,7 +1,7 @@
 'use strict';
 
 import axios from 'axios';
-import store from '../store';
+import store from '../renderer/store';
 import { traffic } from '../config/config';
 
 /**
@@ -21,6 +21,7 @@ class TrafficFunctions {
    * @param {string} destination.longitude
    */
   constructor(store, apiKey, baseUrl, origin, destination) {
+    this.store = store;
     this.apiKey = apiKey;
     this.baseURL = baseUrl;
     this.origin = origin;
@@ -42,26 +43,24 @@ class TrafficFunctions {
    * @description Iterates over on travel modes from config.js. In every
    * iteration it executes GetTraffic with a different transport mode.
    * Afterwards result stored in a new Array then set to vuex store
-   * @param {Object} store
-   * @returns {Promise<void>}
+   * @returns {Promise<JSON>}
    */
-  async GetTrafficByMultipleTravelMode(store) {
+  async GetTrafficByMultipleTravelMode() {
     let responseList = [];
     for (const mode of traffic.travelModes) {
       const response = await this.GetTraffic(mode);
       responseList.push(response?.data?.routes[0]?.sections[0]);
     }
-    this.CreateTrafficStateFromResponseList(responseList, store);
+    this.CreateTrafficStateFromResponseList(responseList);
     return void 0;
   }
   /**
    * @description Creates a new array of objects from forecast response
    * Result list stored in vuex store
    * @param {array} list
-   * @param {object} store
    * @returns {void}
    */
-  CreateTrafficStateFromResponseList(list, store) {
+  CreateTrafficStateFromResponseList(list) {
     if (!list || !Array.isArray(list)) return;
     let result = list.map(m => {
       return {
@@ -70,7 +69,7 @@ class TrafficFunctions {
         arrivalTime: m?.arrival?.time,
       };
     });
-    store.dispatch('traffic/SET_TRAFFIC', result);
+    this.store.dispatch('traffic/SET_TRAFFIC', result);
     return void 0;
   }
 }
