@@ -2,10 +2,11 @@
   <div class="d-flex flex-coulumn">
     <div class="block-wrapper">
       <div class="block">
-        <TopLeft />
+        <DateTime />
+        <Traffic />
       </div>
       <div class="block">
-        <BottomLeft />
+        <Email />
       </div>
     </div>
     <div class="block-wrapper">
@@ -24,14 +25,3 @@ export default {
   name: 'Dashboard',
 };
 </script>
-
-<style>
-.block-wrapper {
-  width: 50%;
-}
-
-.block {
-  min-width: 50%;
-  min-height: 50%;
-}
-</style>

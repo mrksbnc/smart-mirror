@@ -11,8 +11,10 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 //--------------------- I P C  E V E N T S -------------------
 
 ipcMain.on('GET_MAILS', async event => {
+  console.log('background');
   const result = await emailFunctions.GetUnseenMails();
-  event.reply('GET_MAILS', { result });
+  let noUnreed = result.length == 0;
+  event.reply('GET_MAILS', { result, noUnreed });
 });
 
 //------------------- I P C  E V E N T S  E N D---------------

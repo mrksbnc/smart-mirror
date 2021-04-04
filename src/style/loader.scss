@@ -1,0 +1,139 @@
+$black: #000;
+$white: #fff;
+
+.loader-text-wrapper {
+  position: fixed;
+  top: 80%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.loader-text {
+  color: $white;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(90deg);
+}
+
+.dna-loader {
+  height: 10rem;
+  width: 30rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .node {
+    height: 80%;
+    width: 0;
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 1rem;
+      width: 1rem;
+      left: 0;
+      right: 0;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      margin: auto;
+    }
+    &::before {
+      top: 0;
+      background-color: $white;
+      animation: beforeAnimate 2s linear infinite;
+    }
+    &::after {
+      bottom: 0;
+      background-color: $white;
+      animation: afterAnimate 2s linear infinite;
+    }
+  }
+}
+
+@for $i from 1 through 20 {
+  .node:nth-child(#{$i}) {
+    &::before,
+    &::after {
+      animation-delay: #{$i * 0.2}s;
+    }
+  }
+}
+
+@keyframes beforeAnimate {
+  0% {
+    top: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-75%) scale(0.5);
+    z-index: -1;
+    opacity: 0.5;
+  }
+  50% {
+    top: 100%;
+    transform: translateX(-50%) translateY(-100%) scale(0.5);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-75%) scale(0.5);
+    opacity: 0.75;
+    z-index: -1;
+  }
+  100% {
+    top: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0.25;
+  }
+}
+
+@keyframes afterAnimate {
+  0% {
+    bottom: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0.25;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-75%) scale(1.5);
+    opacity: 0.75;
+    z-index: 1;
+  }
+  50% {
+    bottom: 100%;
+    transform: translateX(-50%) translateY(100%) scale(0.5);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-75%) scale(0.5);
+    opacity: 0.75;
+    z-index: -1;
+  }
+  100% {
+    bottom: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0.5;
+  }
+}

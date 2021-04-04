@@ -4,9 +4,13 @@ import 'mutationobserver-shim';
 import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
+
 import './components';
+import './style/loader.scss';
+import './style/smart-mirror.scss';
 import './plugins/bootstrap-vue';
 
+import { helperFunctions } from './core/HelperFunctions';
 import { trafficFunctions } from './core/TrafficFunctions';
 // import { weatherFunctions } from './core/WeatherFunctions';
 import { errorBox, warningBox, successBox } from './data/cssConsoleProperties';
@@ -17,7 +21,8 @@ new Vue({
   store,
   async created() {
     window.ipc.on('GET_MAILS', payload => {
-      this.$store.dispatch('email/SET_EMAILS', payload.result);
+      let normalizedPayload = helperFunctions.CreateNormalizedPayloadForEmail(payload);
+      this.$store.dispatch('email/SET_EMAILS', normalizedPayload);
     });
     this.$store.dispatch('loading/SET_LOADING', true);
     await InitApp(this.$store);

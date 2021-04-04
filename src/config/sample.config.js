@@ -24,6 +24,8 @@ export const traffic = Object.freeze({
     },
     originAlias: null,
     destinationAlias: null,
+    defaultOriginAlias: 'Home',
+    defaultDestinationAlias: 'Work',
   },
   travelModes: ['car', 'pedestrian', 'bus'],
   api: {
