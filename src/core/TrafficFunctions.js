@@ -1,7 +1,7 @@
 'use strict';
 
 import axios from 'axios';
-import store from '../renderer/store';
+import store from '../store';
 import { traffic } from '../config/config';
 
 /**

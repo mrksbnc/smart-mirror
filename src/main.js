@@ -1,9 +1,15 @@
+import '@babel/polyfill';
+import 'mutationobserver-shim';
+
 import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
-import { trafficFunctions } from '../core/TrafficFunctions';
-// import { weatherFunctions } from '../core/WeatherFunctions';
-import { errorBox, warningBox, successBox } from '../data/CSSConsoleProperties';
+import './components';
+import './plugins/bootstrap-vue';
+
+import { trafficFunctions } from './core/TrafficFunctions';
+// import { weatherFunctions } from './core/WeatherFunctions';
+import { errorBox, warningBox, successBox } from './data/cssConsoleProperties';
 
 Vue.config.productionTip = false;
 

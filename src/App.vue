@@ -6,23 +6,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  },
-  mounted() {
-
-  },
-  methods: {
-    readFile(path) {
-      // ask backend to read file
-      const payload = { path };
-      window.ipc.send('GET_MAILS', payload);
-    },
-  },
 }
 </script>
 
