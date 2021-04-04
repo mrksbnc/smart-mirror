@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-  GET_EMAIL_STATE(state) {
+  GET_MAILS(state) {
     return state.emails;
   },
 };

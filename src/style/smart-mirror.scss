@@ -1,0 +1,77 @@
+.app {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.block-wrapper {
+  width: 50%;
+}
+
+.block {
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.date-time-wrapper {
+  display: flex;
+  margin: 25px 0px 0px 30px;
+  flex-direction: column;
+}
+
+.date-row {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.time-row {
+  font-size: 7rem;
+  color: #ffffff;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.traffic-block {
+  margin-left: 30px;
+}
+
+.map-marker-block {
+  margin: 0px 20px 15px 0px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.map-marker-block i {
+  padding-right: 5px;
+}
+
+.travel-time-block {
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+.travel-time-block i {
+  padding-right: 10px;
+}
+
+.email-wrapper {
+  margin-left: 30px;
+}
+
+.sender-block {
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.sender-block i {
+  padding-right: 10px;
+}
+
+.subject-block {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}

@@ -1,5 +1,7 @@
 <template>
-  <component :is="componentProp" />
+  <div style="background-color: yellow;">
+    <component :is="componentProp" />
+  </div>
 </template>
 
 <script>
