@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Loader v-if="isLoading" msg="loading..." />
+    <DNALoader v-if="isLoading" msg="loading..." />
     <Dashboard v-else />
   </div>
 </template>

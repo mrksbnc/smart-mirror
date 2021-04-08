@@ -1,7 +1,7 @@
 'use strict';
 
 import axios from 'axios';
-import store from '../renderer/store';
+import store from '../store';
 import { weather } from '../config/config';
 import WeatherIconEnum from '../data/weatherIconEnum';
 /**
@@ -30,10 +30,7 @@ class WeatherFunctions {
    * @returns {Promise<JSON>} Promise object which represents the server response
    */
   async GetWeather() {
-    console.log(this);
-    const url =
-      this.baseUrl +
-      `/data/2.5/weatherq=${this.city}&units=metric&appid=${this.apiKey}`;
+    const url = this.baseUrl + `/data/2.5/weather?q=${this.city}&units=metric&appid=${this.apiKey}`;
     const response = await axios.get(url);
     return response;
   }
@@ -45,7 +42,8 @@ class WeatherFunctions {
   async GetForecast() {
     const url =
       this.baseUrl +
-      `/data/2.5/onecalllat=${this.latitude}&lon=${this.longitude}&units=metric&appid=${this.apiKey}`;
+      `/data/2.5/onecall?lat=${this.latitude}&lon=${this.longitude}&units=metric&appid=${this.apiKey}`;
+    console.log(url);
     const response = await axios.get(url);
     return response;
   }

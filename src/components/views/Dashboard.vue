@@ -11,11 +11,9 @@
     </div>
     <div class="block-wrapper">
       <div class="block">
-        <TopRight />
+        <Weather />
       </div>
-      <div class="block">
-        <BottomRight />
-      </div>
+      <div class="block"></div>
     </div>
   </div>
 </template>

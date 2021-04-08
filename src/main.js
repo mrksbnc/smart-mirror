@@ -1,18 +1,14 @@
-import '@babel/polyfill';
-import 'mutationobserver-shim';
-
 import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 
 import './components';
 import './style/loader.scss';
-import './style/smart-mirror.scss';
 import './plugins/bootstrap-vue';
-
+import './style/smart-mirror.scss';
 import { helperFunctions } from './core/HelperFunctions';
 import { trafficFunctions } from './core/TrafficFunctions';
-// import { weatherFunctions } from './core/WeatherFunctions';
+import { weatherFunctions } from './core/WeatherFunctions';
 import { errorBox, warningBox, successBox } from './data/cssConsoleProperties';
 
 Vue.config.productionTip = false;
@@ -20,11 +16,11 @@ Vue.config.productionTip = false;
 new Vue({
   store,
   async created() {
+    this.$store.dispatch('loading/SET_LOADING', true);
     window.ipc.on('GET_MAILS', payload => {
       let normalizedPayload = helperFunctions.CreateNormalizedPayloadForEmail(payload);
       this.$store.dispatch('email/SET_EMAILS', normalizedPayload);
     });
-    this.$store.dispatch('loading/SET_LOADING', true);
     await InitApp(this.$store);
     UpdateApp();
     this.$store.dispatch('loading/SET_LOADING', false);
@@ -37,7 +33,7 @@ async function InitApp() {
     console.log('%c[Smart Mirror] App init started', warningBox);
     window.ipc.send('GET_MAILS');
     // await weatherFunctions.SetForecastState();
-    // await weatherFunctions.SetCurrentWeatherState();
+    await weatherFunctions.SetCurrentWeatherState();
     await trafficFunctions.GetTrafficByMultipleTravelMode();
     console.log('%c[Smart Mirror] App startup complete', successBox);
   } catch (error) {
