@@ -23,8 +23,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { traffic as trafficConfig } from '../config/config';
-import { CalculateTimeDiffInMinutes } from '../utils/datetime';
+import { traffic as trafficConfig } from '../../config/config';
+import { CalculateTimeDiffInMinutes } from '../../utils/datetime';
 
 export default {
   name: 'Traffic',
@@ -62,5 +62,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

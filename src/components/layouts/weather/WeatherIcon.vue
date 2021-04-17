@@ -11,7 +11,7 @@ export default {
 
   props: {
     icon: {
-      required: true,
+      default: '',
       type: String,
     },
   },

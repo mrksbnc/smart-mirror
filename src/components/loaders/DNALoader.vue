@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="loader-wrapper">
     <div class="loader-container">
       <div class="dna-loader">
         <div class="node"></div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'Loader',
+  name: 'DNALoader',
   computed: {
     computedMsg: function() {
       return this.msg;

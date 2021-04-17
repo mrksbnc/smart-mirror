@@ -1,7 +1,9 @@
 .app {
   background-color: black;
-  width: 100vw;
+  z-index: 0;
+  width: 100%;
   height: 100vh;
+  color: #ffffff;
 }
 
 .block-wrapper {
@@ -74,4 +76,13 @@
   margin-left: 10px;
   font-size: 0.8rem;
   color: #ffffff;
+}
+
+.weather-wrapper {
+  width: 100%;
+  display: flex;
+  height: inherit;
+  min-height: 100%;
+  justify-content: flex-end;
+  margin-right: 30px;
 }

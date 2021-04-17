@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     GetIcon(email) {
-      return email?.from == 'MirrorOS' ? 'fas fa-terminal' : 'far fa-envelope';
+      return email?.from == 'MirrorOS' ? 'fas fa-terminal' : 'fas fa-envelope';
     },
     NormalizeSenderData(from) {
       let result = '';
@@ -51,7 +51,7 @@ export default {
     },
     FormatSubjectData(subject) {
       if (subject.length > 80) {
-        subject = subject.slice(0, 80);
+        subject = subject.slice(0, 40);
         subject += '...';
       }
       return subject;

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { dateTimeFunctions } from '../core/DateTimeFunctions';
+import { dateTimeFunctions } from '../../core/DateTimeFunctions';
 
 export default {
   name: 'DateTime',
@@ -19,20 +19,18 @@ export default {
 
   created() {
     setInterval(() => {
-      this.setDate();
-      this.setTime();
+      this.SetDate();
+      this.SetTime();
     }, 1000);
   },
 
   methods: {
-    setDate() {
+    SetDate() {
       this.date = dateTimeFunctions.GetCurrentDate();
     },
-    setTime() {
+    SetTime() {
       this.time = dateTimeFunctions.GetCurrentTime();
     },
   },
 };
 </script>
-
-<style scoped></style>
