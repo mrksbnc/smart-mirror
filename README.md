@@ -31,8 +31,8 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 > First rename sample.config.js to config.js in src/config folder then provide the necessary values and api keys
-> This Project requires openWeatherMap, here developer api apiKey by defaut. Pleas note that IMAP login may require
-> generated app password in case two factor auth is enabled
+> This Project requires openWeatherMap, here developer api apiKey by defaut. Please note, that IMAP login may require
+> generated app password in case two factor authentication is enabled.
 
 ```javascript
 export const weather = Object.freeze({
