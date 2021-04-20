@@ -21,3 +21,10 @@ interface WeatherResponse {
   name: String;
   cod: Number;
 }
+
+interface WeatherArrayElement {
+  id: Number;
+  main: String;
+  description: String;
+  icon: String;
+}
