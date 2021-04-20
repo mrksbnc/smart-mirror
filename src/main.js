@@ -19,6 +19,7 @@ new Vue({
     this.$store.dispatch('loading/SET_LOADING', true);
     window.ipc.on('GET_MAILS', payload => {
       let normalizedPayload = helperFunctions.CreateNormalizedPayloadForEmail(payload);
+      console.log(normalizedPayload);
       this.$store.dispatch('email/SET_EMAILS', normalizedPayload);
     });
     await InitApp(this.$store);
@@ -32,7 +33,7 @@ async function InitApp() {
   try {
     console.log('%c[Smart Mirror] App init started', warningBox);
     window.ipc.send('GET_MAILS');
-    // await weatherFunctions.SetForecastState();
+    await weatherFunctions.SetForecastState();
     await weatherFunctions.SetCurrentWeatherState();
     await trafficFunctions.GetTrafficByMultipleTravelMode();
     console.log('%c[Smart Mirror] App startup complete', successBox);
@@ -45,8 +46,8 @@ async function InitApp() {
 async function UpdateApp() {
   window.setInterval(async () => {
     window.ipc.send('GET_MAILS');
-    // await weatherFunctions.SetForecastState();
-    // await weatherFunctions.SetCurrentWeatherState();
+    await weatherFunctions.SetForecastState();
+    await weatherFunctions.SetCurrentWeatherState();
     await trafficFunctions.GetTrafficByMultipleTravelMode(this.$store);
   }, 1800000);
 }
