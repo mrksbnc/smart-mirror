@@ -1,11 +1,9 @@
 <template>
-  <div class="d-flex flex-coulumn">
+  <div class="d-flex flex-coulumn dashboard">
     <div class="block-wrapper">
-      <div class="block">
+      <div class="block flex-column">
         <DateTime />
         <Traffic />
-      </div>
-      <div class="block">
         <Email />
       </div>
     </div>
@@ -13,7 +11,9 @@
       <div class="block">
         <Weather />
       </div>
-      <div class="block"></div>
+      <div class="block end">
+        <Forecast />
+      </div>
     </div>
   </div>
 </template>

@@ -6,6 +6,11 @@
   color: #ffffff;
 }
 
+.dashboard {
+  width: 100%;
+  height: inherit;
+}
+
 .block-wrapper {
   width: 50%;
 }
@@ -13,6 +18,19 @@
 .block {
   min-width: 50%;
   min-height: 50%;
+  display: flex;
+}
+
+.text-12 {
+  font-size: 12px;
+}
+
+.text-14 {
+  font-size: 14px;
+}
+
+.text-16 {
+  font-size: 16px;
 }
 
 .date-time-wrapper {
@@ -39,7 +57,7 @@
 
 .map-marker-block {
   margin: 0px 20px 15px 0px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #ffffff;
 }
 
@@ -85,4 +103,102 @@
   min-height: 100%;
   justify-content: flex-end;
   margin-right: 30px;
+}
+
+.weather-block {
+  width: 100%;
+  align-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.weather-status-with-temperature {
+  font-size: 50px;
+  padding-left: 20px;
+}
+
+.weather-icon {
+  font-size: 90px;
+}
+
+.weather-props-div {
+  display: flex;
+  margin-top: 30px;
+  font-size: 1.1rem;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.weather-info-div {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.main-info-txt-div {
+  font-size: 50px;
+  padding-left: 20px;
+}
+
+.wind {
+  display: flex;
+  align-items: center;
+}
+
+.min-and-max-temp-div {
+  margin-top: 5px;
+}
+
+.weather-props-div {
+  align-items: baseline;
+}
+
+.feels-like-div {
+  margin-bottom: 10px;
+}
+
+.min-and-max-temp-div {
+  margin-bottom: 10px;
+}
+
+.forecast-block {
+  width: 100%;
+  margin-right: 30px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  justify-content: flex-end;
+}
+
+.day-block {
+  color: #ffffff;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.fw-icon {
+  padding: 15px;
+  font-size: 45px;
+}
+
+.temp-block {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.tmp-icon {
+  font-size: 25px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.number-with-icon {
+  display: flex;
+  align-items: center;
 }

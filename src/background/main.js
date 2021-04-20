@@ -8,15 +8,11 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-//--------------------- I P C  E V E N T S -------------------
-
 ipcMain.on('GET_MAILS', async event => {
   const result = await emailFunctions.GetUnseenMails();
-  let noUnreed = result.length == 0;
+  let noUnreed = !result.length;
   event.reply('GET_MAILS', { result, noUnreed });
 });
-
-//------------------- I P C  E V E N T S  E N D---------------
 
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } },

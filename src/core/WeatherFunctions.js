@@ -4,6 +4,7 @@ import axios from 'axios';
 import store from '../store';
 import { weather } from '../config/config';
 import WeatherIconEnum from '../data/weatherIconEnum';
+// import { IsOnSameDay } from '../utils/datetime';
 /**
  * @description This class encapsulates all Weather related logic in
  * this application
@@ -78,9 +79,11 @@ class WeatherFunctions {
    */
   CreateForecastStateDataFromResponse(response) {
     let forecastState = [];
+    console.log(response);
     const dailyForecast = response.data.daily;
     if (!Array.isArray(dailyForecast)) return;
-    forecastState = dailyForecast.map(m => {
+    forecastState = dailyForecast.map((m, i) => {
+      if (i == 0) return;
       const weatherDescription = m.weather[0];
       return {
         icon: this.ConvertWeatherIdToIcon(weatherDescription.icon),
@@ -92,6 +95,7 @@ class WeatherFunctions {
         date: m.dt,
       };
     });
+    forecastState = forecastState.filter(Boolean);
     return this.store.dispatch('weather/SET_FORECAST', forecastState);
   }
   /**

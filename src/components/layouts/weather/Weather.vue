@@ -51,10 +51,10 @@ export default {
       return this.weatherState?.icon;
     },
     maximumTemperature: function() {
-      return this.weatherState?.maximumTemperature;
+      return parseInt(this.weatherState?.maximumTemperature);
     },
     minimumTemperature: function() {
-      return this.weatherState?.minimumTemperature;
+      return parseInt(this.weatherState?.minimumTemperature);
     },
     temperatureFeelsLike: function() {
       return this.weatherState?.temperatureFeelsLike;
@@ -68,61 +68,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.weather-block {
-  flex-direction: column;
-  align-items: flex-end;
-  margin-right: 30px;
-  margin-top: 30px;
-}
-
-.weather-status-with-temperature {
-  font-size: 50px;
-  padding-left: 20px;
-}
-
-.weather-icon {
-  font-size: 90px;
-}
-
-.weather-props-div {
-  display: flex;
-  margin-top: 30px;
-  font-size: 1.1rem;
-  align-items: flex-end;
-  flex-direction: column;
-}
-
-.weather-info-div {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-
-.main-info-txt-div {
-  font-size: 50px;
-  padding-left: 20px;
-}
-
-.wind {
-  display: flex;
-  align-items: center;
-}
-
-.min-and-max-temp-div {
-  margin-top: 5px;
-}
-
-.weather-props-div {
-  align-items: baseline;
-}
-
-.feels-like-div {
-  margin-bottom: 10px;
-}
-
-.min-and-max-temp-div {
-  margin-bottom: 10px;
-}
-</style>
