@@ -18,11 +18,12 @@ new Vue({
   async created() {
     this.$store.dispatch('loading/SET_LOADING', true);
     window.ipc.on('GET_MAILS', payload => {
+      console.log(payload);
       let normalizedPayload = helperFunctions.CreateNormalizedPayloadForEmail(payload);
       console.log(normalizedPayload);
       this.$store.dispatch('email/SET_EMAILS', normalizedPayload);
     });
-    await InitApp(this.$store);
+    await InitApp();
     UpdateApp();
     this.$store.dispatch('loading/SET_LOADING', false);
   },

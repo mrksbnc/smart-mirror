@@ -4,7 +4,6 @@ import axios from 'axios';
 import store from '../store';
 import { weather } from '../config/config';
 import WeatherIconEnum from '../data/weatherIconEnum';
-// import { IsOnSameDay } from '../utils/datetime';
 /**
  * @description This class encapsulates all Weather related logic in
  * this application
@@ -28,7 +27,7 @@ class WeatherFunctions {
   /**
    * @description Sends a properly formatted GET request then returns the
    * current weather.
-   * @returns {Promise<JSON>} Promise object which represents the server response
+   * @returns {Promise<WeatherResponse>} Promise object which represents the server response
    */
   async GetWeather() {
     const url = this.baseUrl + `/data/2.5/weather?q=${this.city}&units=metric&appid=${this.apiKey}`;
@@ -38,7 +37,7 @@ class WeatherFunctions {
   /**
    * @description Sends a properly formatted GET request then returns the
    * forecast.
-   * @returns {Promise<JSON>} Promise object which represents the server response
+   * @returns {Promise<ForeacastResponse>} Promise object which represents the server response
    */
   async GetForecast() {
     const url =

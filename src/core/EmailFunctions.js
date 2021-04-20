@@ -4,13 +4,24 @@ import imaps from 'imap-simple';
 import { email } from '../config/config';
 
 class EmailFunctions {
+  /**
+   * @description Required properties for a successful IMAP login
+   * @param {Object} config
+   * @param {Object} config.imap
+   * @param {string} config.imap.user
+   * @param {string} config.imap.password
+   * @param {string} config.imap.fetchOptions
+   * @param {number} config.imap.port
+   * @param {boolean} config.imap.searchResults
+   * @param {number} config.imap.authTimeout
+   */
   constructor(config) {
     this.config = config;
   }
   /**
    * @description returns sender and subject to every unseen mail in the
    * given inbox
-   * @returns {Array<any>} unseenMails
+   * @returns {Array<PayloadModel>} unseenMails
    */
   async GetUnseenMails() {
     const searchCriteria = ['UNSEEN'];

@@ -30,7 +30,7 @@ class TrafficFunctions {
   /**
    * @description Sends a propery formatted GET request for HERE API
    * @param {string} transportMode
-   * @returns {Promise} response
+   * @returns {Promise<TrafficResponse>} response
    */
   async GetTraffic(transportMode) {
     const url =
@@ -43,7 +43,7 @@ class TrafficFunctions {
    * @description Iterates over on travel modes from config.js. In every
    * iteration it executes GetTraffic with a different transport mode.
    * Afterwards result stored in a new Array then set to vuex store
-   * @returns {Promise<JSON>}
+   * @returns {Promise<void>}
    */
   async GetTrafficByMultipleTravelMode() {
     let responseList = [];
@@ -57,7 +57,7 @@ class TrafficFunctions {
   /**
    * @description Creates a new array of objects from forecast response
    * Result list stored in vuex store
-   * @param {array} list
+   * @param {Array<Section>} list
    * @returns {void}
    */
   CreateTrafficStateFromResponseList(list) {
